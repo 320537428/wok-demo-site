@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WOK · GitHub Pages 示例站</title>
+<style>
+  :root{
+    --bg:#0b0f19; --panel:#131a2a; --line:#233049;
+    --txt:#e8eefc; --dim:#93a3c0;
+    --accent:#4f8cff; --accent2:#7c5cff; --ok:#38d39f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg); color:var(--txt); min-height:100vh;
+    background-image:
+      radial-gradient(900px 500px at 12% -10%, rgba(79,140,255,.28), transparent 60%),
+      radial-gradient(800px 500px at 92% 8%, rgba(124,92,255,.24), transparent 60%);
+    display:flex; flex-direction:column;
+  }
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 32px; border-bottom:1px solid var(--line);
+    backdrop-filter:blur(8px);
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 14px var(--ok)}
+  .badge{
+    font-size:12px;color:var(--dim);border:1px solid var(--line);
+    padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.03)
+  }
+  main{flex:1;max-width:1080px;width:100%;margin:0 auto;padding:72px 32px 40px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--accent);
+    border:1px solid rgba(79,140,255,.35);background:rgba(79,140,255,.08);
+    padding:7px 14px;border-radius:999px;margin-bottom:26px
+  }
+  h1{font-size:clamp(32px,5vw,54px);line-height:1.15;letter-spacing:-1px;margin-bottom:20px}
+  h1 .grad{
+    background:linear-gradient(100deg,var(--accent),var(--accent2) 60%,#38d39f);
+    -webkit-background-clip:text;background-clip:text;color:transparent
+  }
+  .lead{font-size:17px;color:var(--dim);line-height:1.8;max-width:640px;margin-bottom:40px}
+  .actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
+  .btn{
+    padding:13px 26px;border-radius:12px;font-size:15px;font-weight:600;
+    border:1px solid var(--line);color:var(--txt);background:var(--panel);
+    cursor:pointer;text-decoration:none;transition:.2s;
+  }
+  .btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .btn.primary{
+    background:linear-gradient(100deg,var(--accent),var(--accent2));
+    border:none;color:#fff;box-shadow:0 10px 30px rgba(79,140,255,.3)
+  }
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px;
+    transition:.25s;
+  }
+  .card:hover{border-color:rgba(79,140,255,.55);transform:translateY(-3px)}
+  .icon{font-size:22px;margin-bottom:14px}
+  .card h3{font-size:16px;margin-bottom:10px}
+  .card p{font-size:14px;color:var(--dim);line-height:1.7}
+  footer{
+    border-top:1px solid var(--line);padding:24px 32px;text-align:center;
+    font-size:13px;color:var(--dim)
+  }
+  #clock{font-variant-numeric:tabular-nums;color:var(--ok)}
+  @media(max-width:640px){main{padding:48px 20px 32px}header{padding:18px 20px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><span class="dot"></span>WOK / demo-site</div>
+  <div class="badge">deployed on GitHub Pages</div>
+</header>
+
+<main>
+  <div class="eyebrow">✓ 静态站点发布成功</div>
+  <h1>这是一个跑在 <span class="grad">GitHub Pages</span> 上的示例页面</h1>
+  <p class="lead">
+    单文件 HTML，零依赖、零构建。托管于 GitHub 免费静态托管服务，推送到仓库即自动上线，
+    支持自定义域名与 HTTPS。下面这些卡片是纯 CSS 绘制的交互示例。
+  </p>
+
+  <div class="actions">
+    <a class="btn primary" href="https://pages.github.com/" target="_blank" rel="noopener">了解 GitHub Pages</a>
+    <button class="btn" id="ping">点我试试</button>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">⚡</div>
+      <h3>零构建成本</h3>
+      <p>纯静态资源直接托管，无需服务器、无需 CI 配置，push 即发布。</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔒</div>
+      <h3>自动 HTTPS</h3>
+      <p>默认启用 TLS 证书，配合自定义域名也能一键签发。</p>
+    </div>
+    <div class="card">
+      <div class="icon">🌏</div>
+      <h3>全球 CDN</h3>
+      <p>由 GitHub 的边缘网络分发，静态文件就近命中缓存。</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧩</div>
+      <h3>版本可回溯</h3>
+      <p>每一次发布都对应一次提交，回滚就是 revert 一个 commit。</p>
+    </div>
+  </div>
+
+  <p style="margin-top:56px;color:var(--dim);font-size:14px">
+    当前本地时间：<span id="clock">--:--:--</span>
+  </p>
+</main>
+
+<footer>示例页面 · 由 WOK 生成并发布 · <span id="year"></span></footer>
+
+<script>
+  const clock = document.getElementById('clock');
+  const tick = () => clock.textContent = new Date().toLocaleTimeString('zh-CN', {hour12:false});
+  tick(); setInterval(tick, 1000);
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.getElementById('ping').addEventListener('click', function(){
+    const msgs = ['页面运行正常 ✓', '静态托管已生效 ✓', '这是一次真实的前端交互 ✓', '你好，AK47 👋'];
+    const m = msgs[Math.floor(Math.random()*msgs.length)];
+    this.textContent = m;
+    setTimeout(()=>{ this.textContent = '点我试试'; }, 1800);
+  });
+</script>
+</body>
+</html>
